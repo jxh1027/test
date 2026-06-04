@@ -106,21 +106,15 @@
 
   // ── 섹션 스마트 이동 (index.html이면 스크롤, 서브페이지면 이동) ──
   function gotoSection(sectionId) {
-    // index.html이거나 / 로 끝나는 경우 (홈 페이지)
-    var path = window.location.pathname;
-    var filename = path.split('/').pop(); // 마지막 부분만 추출
-    var isHome = filename === 'index.html' || filename === '' || filename === 'test';
-
-    if (isHome) {
-      var el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        closeMobileNav();
-        closeAll();
-      }
+    var el = document.getElementById(sectionId);
+    if (el) {
+      // 같은 페이지에 해당 섹션이 있으면 스크롤
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMobileNav();
+      closeAll();
     } else {
-      // 서브페이지 → index.html로 이동하면서 해당 섹션으로
-      window.location.href = pageUrl('index.html') + '#' + sectionId;
+      // 섹션이 없으면 (서브페이지) → index.html#sectionId 로 이동
+      window.location.href = 'index.html#' + sectionId;
     }
   }
 
