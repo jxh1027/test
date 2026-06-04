@@ -367,19 +367,16 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
 /* ── DROPDOWN MENU (click-based) ── */
 .nav-item{position:relative;}
 .dropdown{
-  position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  position:fixed;top:0;left:0;
   background:#fff;border-radius:var(--r-md);
   box-shadow:0 8px 32px rgba(0,0,0,.14);
-  min-width:190px;padding:8px 0;
+  min-width:200px;padding:8px 0;
   opacity:0;visibility:hidden;
   transition:opacity .2s, visibility .2s;
   z-index:300;
 }
 .dropdown.open{opacity:1;visibility:visible;}
-.dropdown::before{
-  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
-  border:6px solid transparent;border-bottom-color:#fff;border-top:none;
-}
+.dropdown::before{ display:none; }
 .dropdown a{
   display:block;
   padding:11px 20px;font-size:14px;font-weight:500;
@@ -469,6 +466,7 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
   </a>
   <div class="nav-right">
     <div class="nav-links">
+      <!-- 교회소개 -->
       <div class="nav-item">
         <button class="nav-link-dd" id="aboutBtn" onclick="toggleDropdown(event, 'aboutDropdown', 'aboutBtn')">
           <span data-ko>교회소개</span><span data-en>About</span>
@@ -497,6 +495,13 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
           </div>
         </div>
       </div>
+      <!-- 말씀 -->
+      <a href="#sermon" class="nav-link"><span data-ko>말씀</span><span data-en>Sermons</span></a>
+      <!-- 사역 -->
+      <a href="#ministries" class="nav-link"><span data-ko>사역</span><span data-en>Ministries</span></a>
+      <!-- 헌금 -->
+      <a href="#offering" class="nav-link"><span data-ko>헌금</span><span data-en>Give</span></a>
+      <!-- 게시판 -->
       <div class="nav-item">
         <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
           <span data-ko>게시판</span><span data-en>Board</span>
@@ -511,76 +516,10 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
           </a>
         </div>
       </div>
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
+      <!-- 처음 오시는 분 -->
+      <a href="#new" class="nav-link"><span data-ko>처음 오시는 분</span><span data-en>New Here</span></a>
+      <!-- 오시는 길 -->
+      <a href="#location" class="nav-link"><span data-ko>오시는 길</span><span data-en>Visit Us</span></a>
     </div>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-ko" onclick="setLang('ko')">한국어</button>
@@ -1341,8 +1280,12 @@ function toggleDropdown(e, dropId, btnId) {
   var isOpen = drop.classList.contains('open');
   closeAllDropdowns();
   if (!isOpen) {
+    // 버튼 위치 계산해서 드롭다운 정확히 배치
+    var rect = btn.getBoundingClientRect();
+    drop.style.top  = (rect.bottom + 6) + 'px';
+    drop.style.left = rect.left + 'px';
     drop.classList.add('open');
-    if (btn) btn.classList.add('active');
+    btn.classList.add('active');
   }
 }
 
@@ -1375,6 +1318,11 @@ document.addEventListener('keydown', function(e) {
 
 // Nav scroll
 var nav = document.getElementById("nav");
+// 스크롤 시 드롭다운 닫기
+window.addEventListener('scroll', function() {
+  closeAllDropdowns();
+}, {passive:true});
+
 window.addEventListener("scroll", function(){
   nav.classList.toggle("scrolled", window.scrollY > 60);
 }, {passive:true});
