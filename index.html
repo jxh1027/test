@@ -363,14 +363,87 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
 
  }
 
+
+/* ── DROPDOWN MENU (click-based) ── */
+.nav-item{position:relative;}
+.dropdown{
+  position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#fff;border-radius:var(--r-md);
+  box-shadow:0 8px 32px rgba(0,0,0,.14);
+  min-width:190px;padding:8px 0;
+  opacity:0;visibility:hidden;
+  transition:opacity .2s, visibility .2s;
+  z-index:300;
+}
+.dropdown.open{opacity:1;visibility:visible;}
+.dropdown::before{
+  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-bottom-color:#fff;border-top:none;
+}
+.dropdown a{
+  display:block;
+  padding:11px 20px;font-size:14px;font-weight:500;
+  color:#333;transition:all .15s;white-space:nowrap;
+}
+.dropdown a:hover{background:#f6f5f1;color:var(--navy);}
+.dropdown .sub-item{position:relative;}
+.sub-dropdown{
+  position:absolute;top:0;left:100%;margin-left:4px;
+  background:#fff;border-radius:var(--r-md);
+  box-shadow:0 8px 32px rgba(0,0,0,.14);
+  min-width:200px;padding:8px 0;
+  opacity:0;visibility:hidden;
+  transition:opacity .2s, visibility .2s;
+  z-index:301;
+}
+.sub-dropdown.open{opacity:1;visibility:visible;}
+.sub-item > a{display:flex;align-items:center;justify-content:space-between;}
+.dropdown-arrow{font-size:11px;opacity:.4;}
+.nav-link-dd{
+  font-size:15px;font-weight:500;color:rgba(255,255,255,.9);
+  transition:color .2s;white-space:nowrap;cursor:pointer;
+  display:flex;align-items:center;gap:4px;
+  background:none;border:none;padding:4px 0;font-family:inherit;
+}
+#nav.scrolled .nav-link-dd{color:#333;}
+.nav-link-dd:hover{color:#fff;}
+#nav.scrolled .nav-link-dd:hover{color:var(--navy);}
+.nav-link-dd .dd-caret{font-size:9px;opacity:.6;transition:transform .2s;}
+.nav-link-dd.active .dd-caret{transform:rotate(180deg);}
+
 </style>
 </head>
 <body class="lang-ko">
 
 <!-- MOBILE DRAWER -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#welcome" class="menu-item" onclick="closeMobile()"><span data-ko>교회소개</span><span data-en>About</span></a>
+  <a href="#welcome" class="menu-item" onclick="closeMobile()">
+    <span data-ko>교회소개</span><span data-en>About</span>
+  </a>
+  <a href="pastor.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.65);" onclick="closeMobile()">
+    <span data-ko>↳ 담임목사 인사말</span><span data-en>↳ Pastor's Greeting</span>
+  </a>
+  <a href="history.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.65);" onclick="closeMobile()">
+    <span data-ko>↳ 교회 연혁</span><span data-en>↳ Church History</span>
+  </a>
+  <a href="clergy.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.65);" onclick="closeMobile()">
+    <span data-ko>↳ 교역자</span><span data-en>↳ Clergy</span>
+  </a>
+  <a href="council.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.65);" onclick="closeMobile()">
+    <span data-ko>↳ 당회(운영위원회)</span><span data-en>↳ Session &amp; Council</span>
+  </a>
   <a href="#sermon" class="menu-item" onclick="closeMobile()"><span data-ko>말씀</span><span data-en>Sermons</span></a>
+  <a href="javascript:void(0)" class="menu-item" onclick="toggleMobileSubmenu('mobileBoard')">
+    <span data-ko>게시판 ▾</span><span data-en>Board ▾</span>
+  </a>
+  <div id="mobileBoard" style="display:none;background:rgba(255,255,255,.04);border-radius:10px;margin:4px 0;">
+    <a href="bulletin.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.75);" onclick="closeMobile()">
+      <span data-ko>↳ 금주의 주보</span><span data-en>↳ Weekly Bulletin</span>
+    </a>
+    <a href="gallery.html" class="menu-item" style="padding-left:32px;font-size:15px;color:rgba(255,255,255,.75);" onclick="closeMobile()">
+      <span data-ko>↳ 사진 게시판</span><span data-en>↳ Photo Gallery</span>
+    </a>
+  </div>
   <a href="#ministries" class="menu-item" onclick="closeMobile()"><span data-ko>사역</span><span data-en>Ministries</span></a>
   <a href="#offering" class="menu-item" onclick="closeMobile()"><span data-ko>헌금</span><span data-en>Give</span></a>
   <a href="#new" class="menu-item" onclick="closeMobile()"><span data-ko>처음 오시는 분</span><span data-en>New Here</span></a>
@@ -395,7 +468,48 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
   </a>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#welcome" class="nav-link"><span data-ko>교회소개</span><span data-en>About</span></a>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="aboutBtn" onclick="toggleDropdown(event, 'aboutDropdown', 'aboutBtn')">
+          <span data-ko>교회소개</span><span data-en>About</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="aboutDropdown">
+          <a href="pastor.html">
+            <span data-ko>담임목사 인사말</span><span data-en>Pastor's Greeting</span>
+          </a>
+          <a href="history.html">
+            <span data-ko>교회 연혁</span><span data-en>Church History</span>
+          </a>
+          <div class="sub-item">
+            <a href="clergy.html" onclick="toggleSubMenu(event, 'subMenu1')">
+              <span data-ko>섬기는 사람들</span><span data-en>Our Team</span>
+              <span class="dropdown-arrow">▸</span>
+            </a>
+            <div class="sub-dropdown" id="subMenu1">
+              <a href="clergy.html">
+                <span data-ko>교역자</span><span data-en>Clergy</span>
+              </a>
+              <a href="council.html">
+                <span data-ko>당회 (운영위원회)</span><span data-en>Session &amp; Council</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
       <a href="#sermon" class="nav-link"><span data-ko>말씀</span><span data-en>Sermons</span></a>
       <a href="#ministries" class="nav-link"><span data-ko>사역</span><span data-en>Ministries</span></a>
       <a href="#offering" class="nav-link"><span data-ko>헌금</span><span data-en>Give</span></a>
@@ -1111,7 +1225,8 @@ function setLang(lang) {
         ? '<img src="' + p.thumb + '" alt="' + p.title_ko + '" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;">'
         : '<div style="width:100%;height:100%;background:linear-gradient(135deg,#c8d8ee,#8aaed0);display:flex;align-items:center;justify-content:center;font-size:32px;">🖼️</div>';
 
-      return '<a href="gallery.html" class="photo-cell" style="padding:0;background:#111;overflow:hidden;display:block;text-decoration:none;"'
+      var postUrl = 'gallery.html?post=' + encodeURIComponent(p.id);
+      return '<a href="' + postUrl + '" class="photo-cell" style="padding:0;background:#111;overflow:hidden;display:block;text-decoration:none;"'
         + ' onmouseenter="this.querySelector(\'img\')&&(this.querySelector(\'img\').style.transform=\'scale(1.07)\')"'
         + ' onmouseleave="this.querySelector(\'img\')&&(this.querySelector(\'img\').style.transform=\'scale(1)\')"'
         + ' title="' + p.title_ko + '">'
@@ -1150,6 +1265,47 @@ function setLang(lang) {
 
   loadGalleryData();
 })();
+
+
+// ── 드롭다운 클릭 토글 ──
+function toggleDropdown(e, dropId, btnId) {
+  e.stopPropagation();
+  var drop = document.getElementById(dropId);
+  var btn  = document.getElementById(btnId);
+  var isOpen = drop.classList.contains('open');
+  closeAllDropdowns();
+  if (!isOpen) {
+    drop.classList.add('open');
+    if (btn) btn.classList.add('active');
+  }
+}
+
+function toggleMobileSubmenu(id) {
+  var el = document.getElementById(id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function toggleSubMenu(e, subId) {
+  e.preventDefault();
+  e.stopPropagation();
+  var sub = document.getElementById(subId);
+  sub.classList.toggle('open');
+}
+
+function closeAllDropdowns() {
+  document.querySelectorAll('.dropdown').forEach(function(d){ d.classList.remove('open'); });
+  document.querySelectorAll('.sub-dropdown').forEach(function(d){ d.classList.remove('open'); });
+  document.querySelectorAll('.nav-link-dd').forEach(function(b){ b.classList.remove('active'); });
+}
+
+// 드롭다운 외부 클릭 시 닫기
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-item')) closeAllDropdowns();
+});
+// ESC 키로 닫기
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAllDropdowns();
+});
 
 // Nav scroll
 var nav = document.getElementById("nav");
