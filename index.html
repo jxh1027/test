@@ -433,6 +433,9 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
     <span data-ko>↳ 당회(운영위원회)</span><span data-en>↳ Session &amp; Council</span>
   </a>
   <a href="#sermon" class="menu-item" onclick="closeMobile()"><span data-ko>말씀</span><span data-en>Sermons</span></a>
+  
+  <a href="#ministries" class="menu-item" onclick="closeMobile()"><span data-ko>사역</span><span data-en>Ministries</span></a>
+  <a href="#offering" class="menu-item" onclick="closeMobile()"><span data-ko>헌금</span><span data-en>Give</span></a>
   <a href="javascript:void(0)" class="menu-item" onclick="toggleMobileSubmenu('mobileBoard')">
     <span data-ko>게시판 ▾</span><span data-en>Board ▾</span>
   </a>
@@ -444,8 +447,6 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
       <span data-ko>↳ 사진 게시판</span><span data-en>↳ Photo Gallery</span>
     </a>
   </div>
-  <a href="#ministries" class="menu-item" onclick="closeMobile()"><span data-ko>사역</span><span data-en>Ministries</span></a>
-  <a href="#offering" class="menu-item" onclick="closeMobile()"><span data-ko>헌금</span><span data-en>Give</span></a>
   <a href="#new" class="menu-item" onclick="closeMobile()"><span data-ko>처음 오시는 분</span><span data-en>New Here</span></a>
   <a href="#location" class="menu-item" onclick="closeMobile()"><span data-ko>오시는 길</span><span data-en>Visit Us</span></a>
   <div class="mobile-lang">
@@ -510,11 +511,76 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
           </a>
         </div>
       </div>
-      <a href="#sermon" class="nav-link"><span data-ko>말씀</span><span data-en>Sermons</span></a>
-      <a href="#ministries" class="nav-link"><span data-ko>사역</span><span data-en>Ministries</span></a>
-      <a href="#offering" class="nav-link"><span data-ko>헌금</span><span data-en>Give</span></a>
-      <a href="#new" class="nav-link"><span data-ko>처음 오시는 분</span><span data-en>New Here</span></a>
-      <a href="#location" class="nav-link"><span data-ko>오시는 길</span><span data-en>Visit Us</span></a>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
+          <span data-ko>게시판</span><span data-en>Board</span>
+          <span class="dd-caret">▾</span>
+        </button>
+        <div class="dropdown" id="boardDropdown">
+          <a href="bulletin.html">
+            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+          </a>
+          <a href="gallery.html">
+            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-ko" onclick="setLang('ko')">한국어</button>
