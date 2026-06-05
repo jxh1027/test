@@ -489,32 +489,12 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
   </a>
   <div class="nav-right">
     <div class="nav-links">
-      <!-- 교회소개 -->
       <a href="#welcome" class="nav-link"><span data-ko>교회소개</span><span data-en>About</span></a>
-      <!-- 말씀 -->
       <a href="#sermon" class="nav-link"><span data-ko>말씀</span><span data-en>Sermons</span></a>
-      <!-- 사역 -->
       <a href="#ministries" class="nav-link"><span data-ko>사역</span><span data-en>Ministries</span></a>
-      <!-- 헌금 -->
+      <a href="#photos" class="nav-link"><span data-ko>게시판</span><span data-en>Board</span></a>
       <a href="#offering" class="nav-link"><span data-ko>헌금</span><span data-en>Give</span></a>
-      <!-- 게시판 -->
-      <div class="nav-item">
-        <button class="nav-link-dd" id="boardBtn" onclick="toggleDropdown(event, 'boardDropdown', 'boardBtn')">
-          <span data-ko>게시판</span><span data-en>Board</span>
-          <span class="dd-caret">▾</span>
-        </button>
-        <div class="dropdown" id="boardDropdown">
-          <a href="bulletin.html">
-            <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
-          </a>
-          <a href="gallery.html">
-            <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
-          </a>
-        </div>
-      </div>
-      <!-- 처음 오시는 분 -->
       <a href="#new" class="nav-link"><span data-ko>처음 오시는 분</span><span data-en>New Here</span></a>
-      <!-- 오시는 길 -->
       <a href="#location" class="nav-link"><span data-ko>오시는 길</span><span data-en>Visit Us</span></a>
     </div>
     <div class="lang-switcher">
@@ -749,10 +729,8 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
             margin-bottom:8px;display:none;"></p>
         <p class="sermon-text">
           <span data-ko>▶ 영상을 클릭하면 바로 재생됩니다.<br>
-            <small style="opacity:.6;">제목에 [주일예배]가 포함된 최신 영상이 자동 표시됩니다.</small>
           </span>
           <span data-en>▶ Click to play.<br>
-            <small style="opacity:.6;">Auto-loads latest video with [주일예배] in title.</small>
           </span>
         </p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
@@ -936,35 +914,6 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
 </script>
 
 <!-- PHOTOS -->
-<section id="photos" style="background:#f0ece4;padding:80px 48px">
-  <div class="section-inner">
-    <p class="section-eyebrow"><span data-ko>교회 사진</span><span data-en>Our Community</span></p>
-    <div class="section-divider"></div>
-    <h2 class="section-title fade-up"><span data-ko>함께하는 공동체</span><span data-en>Life Together</span></h2>
-
-    <!-- 최신 4개 게시글 썸네일 그리드 -->
-    <div class="photo-strip fade-up delay-1" id="galleryPreview">
-      <!-- JS로 동적 로딩 -->
-    </div>
-
-    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <p class="gmaps-credit">
-        <span data-ko>더 많은 사진: </span><span data-en>More photos: </span>
-        <a href="https://www.google.com/maps/place/Korean+Community+Church+in+Charlottesville/@38.0523134,-78.5542573,17z" target="_blank">Google Maps →</a>
-      </p>
-      <a href="gallery.html"
-        style="font-size:13px;font-weight:600;color:var(--navy);
-               display:inline-flex;align-items:center;gap:6px;
-               padding:9px 20px;border:1.5px solid var(--navy);
-               border-radius:var(--r-btn);transition:all .2s;">
-        <span data-ko>📷 사진 게시판 →</span>
-        <span data-en>📷 Photo Gallery →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- MINISTRIES -->
 <section class="section" id="ministries">
   <div class="section-inner">
     <p class="section-eyebrow"><span data-ko>사역</span><span data-en>Ministries</span></p>
@@ -1036,6 +985,89 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MINISTRIES -->
+<section id="photos" style="background:#f0ece4;padding:80px 48px">
+  <div class="section-inner">
+    <p class="section-eyebrow"><span data-ko>교회 게시판</span><span data-en>Church Board</span></p>
+    <div class="section-divider"></div>
+    <h2 class="section-title fade-up"><span data-ko>함께하는 공동체</span><span data-en>Life Together</span></h2>
+
+    <!-- 위: 금주의 주보 -->
+    <div class="fade-up delay-1" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;">
+          📋 <span data-ko>금주의 주보</span><span data-en>Weekly Bulletin</span>
+        </h3>
+        <a href="bulletin.html" style="font-size:13px;color:var(--navy);font-weight:600;
+          display:flex;align-items:center;gap:4px;text-decoration:none;
+          padding:7px 16px;border:1.5px solid var(--navy);border-radius:var(--r-btn);
+          transition:all .2s;"
+          onmouseover="this.style.background='var(--navy)';this.style.color='#fff'"
+          onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">
+          <span data-ko>주보 보기 →</span><span data-en>View Bulletin →</span>
+        </a>
+      </div>
+
+      <!-- 주보 카드 -->
+      <div id="bulletinPreview" style="
+        background:#fff;border-radius:var(--r-lg);
+        box-shadow:0 2px 16px rgba(0,0,0,.07);
+        overflow:hidden;cursor:pointer;
+        display:flex;align-items:stretch;
+        transition:box-shadow .2s;"
+        onclick="window.location.href='bulletin.html'"
+        onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.12)'"
+        onmouseout="this.style.boxShadow='0 2px 16px rgba(0,0,0,.07)'">
+        <!-- 왼쪽: 날짜/아이콘 -->
+        <div style="background:var(--navy);padding:28px 32px;display:flex;flex-direction:column;
+          align-items:center;justify-content:center;gap:8px;min-width:140px;">
+          <div style="font-size:36px;">📄</div>
+          <div id="bulletinDateDisplay" style="font-size:13px;font-weight:700;color:var(--gold);text-align:center;line-height:1.4;">
+            <span data-ko>최신 주보</span><span data-en>Latest</span>
+          </div>
+        </div>
+        <!-- 오른쪽: 내용 -->
+        <div style="padding:28px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+            color:var(--gold);margin-bottom:8px;">
+            <span data-ko>주일 예배 주보</span><span data-en>Sunday Service Bulletin</span>
+          </p>
+          <h4 id="bulletinTitleDisplay" style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px;">
+            <span data-ko>샬롯츠빌한인교회</span><span data-en>KCCIC</span>
+          </h4>
+          <p style="font-size:14px;color:#888;font-weight:300;">
+            <span data-ko>클릭하면 주보를 바로 보실 수 있습니다.</span>
+            <span data-en>Click to view the bulletin.</span>
+          </p>
+        </div>
+        <!-- 화살표 -->
+        <div style="display:flex;align-items:center;padding:0 24px;color:#ccc;font-size:24px;">›</div>
+      </div>
+    </div>
+
+    <!-- 아래: 사진 게시판 -->
+    <div class="fade-up delay-2">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <h3 style="font-size:18px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;">
+          📷 <span data-ko>사진 게시판</span><span data-en>Photo Gallery</span>
+        </h3>
+        <a href="gallery.html" style="font-size:13px;color:var(--navy);font-weight:600;
+          display:flex;align-items:center;gap:4px;text-decoration:none;
+          padding:7px 16px;border:1.5px solid var(--navy);border-radius:var(--r-btn);
+          transition:all .2s;"
+          onmouseover="this.style.background='var(--navy)';this.style.color='#fff'"
+          onmouseout="this.style.background='transparent';this.style.color='var(--navy)'">
+          <span data-ko>게시판 가기 →</span><span data-en>View Gallery →</span>
+        </a>
+      </div>
+      <div class="photo-strip" id="galleryPreview">
+        <!-- JS로 동적 로딩 -->
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1232,6 +1264,28 @@ function setLang(lang) {
 
 
 
+
+
+// ── 주보 미리보기 ──
+(function() {
+  try {
+    var raw = localStorage.getItem('kccic_bulletins');
+    if (!raw) return;
+    var bulletins = JSON.parse(raw);
+    if (!bulletins || !bulletins.length) return;
+    var latest = bulletins[0];
+    var dateEl  = document.getElementById('bulletinDateDisplay');
+    var titleEl = document.getElementById('bulletinTitleDisplay');
+    if (dateEl && latest.label_ko) {
+      dateEl.innerHTML = '<span data-ko>' + latest.label_ko + '</span>'
+                       + '<span data-en>' + latest.label_en + '</span>';
+    }
+    if (titleEl) {
+      titleEl.innerHTML = '<span data-ko>샬롯츠빌한인교회 주보</span>'
+                        + '<span data-en>KCCIC Bulletin</span>';
+    }
+  } catch(e) {}
+})();
 
 // ── 사진 게시판 최신 4개 → 홈 연동 ──
 (function() {

@@ -116,23 +116,6 @@ a{text-decoration:none;color:inherit}
 .kn-links{display:flex;align-items:center;gap:26px;}
 .kn-link{font-size:15px;font-weight:500;color:#333;transition:color .2s;text-decoration:none;white-space:nowrap;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
 .kn-link:hover{color:#1a3a6a;}
-.kn-item{position:relative;}
-.kn-dd-btn{font-size:15px;font-weight:500;color:#333;white-space:nowrap;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;display:flex;align-items:center;gap:3px;}
-.kn-dd-btn:hover{color:#1a3a6a;}
-.kn-caret{font-size:9px;opacity:.6;transition:transform .2s;}
-.kn-dd-btn.active .kn-caret{transform:rotate(180deg);}
-.kn-dropdown{position:fixed;top:0;left:0;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.14);min-width:200px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:300;}
-.kn-dropdown.open{opacity:1;visibility:visible;}
-.kn-dropdown a{display:block;padding:11px 20px;font-size:14px;font-weight:500;color:#333;text-decoration:none;transition:all .15s;white-space:nowrap;font-family:"Noto Sans KR",sans-serif;}
-.kn-dropdown a:hover{background:#f6f5f1;color:#1a3a6a;}
-.kn-sub-item{position:relative;}
-.kn-sub-btn{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;font-size:14px;font-weight:500;color:#333;cursor:pointer;white-space:nowrap;font-family:"Noto Sans KR",sans-serif;}
-.kn-sub-btn:hover{background:#f6f5f1;color:#1a3a6a;}
-.kn-sub-arrow{font-size:11px;opacity:.4;}
-.kn-sub-dropdown{position:fixed;top:0;left:0;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.14);min-width:200px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s;z-index:301;}
-.kn-sub-dropdown.open{opacity:1;visibility:visible;}
-.kn-sub-dropdown a{display:block;padding:11px 20px;font-size:14px;font-weight:500;color:#333;text-decoration:none;transition:all .15s;font-family:"Noto Sans KR",sans-serif;}
-.kn-sub-dropdown a:hover{background:#f6f5f1;color:#1a3a6a;}
 .kn-lang{display:flex;border-radius:50px;overflow:hidden;border:1.5px solid #d0d8e8;}
 .kn-lang button{padding:5px 13px;font-size:11px;font-weight:700;color:#777;background:transparent;border:none;cursor:pointer;font-family:inherit;}
 .kn-lang button:first-child{border-right:1px solid #d0d8e8;}
@@ -144,10 +127,8 @@ a{text-decoration:none;color:inherit}
 .kn-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .kn-mobile{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;z-index:199;background:rgba(10,22,50,.97);backdrop-filter:blur(16px);padding:12px 24px 40px;flex-direction:column;gap:0;transform:translateX(100%);opacity:0;pointer-events:none;transition:transform .32s ease,opacity .32s ease;overflow-y:auto;font-family:"Noto Sans KR",sans-serif;}
 .kn-mobile.open{transform:translateX(0);opacity:1;pointer-events:all;display:flex;}
-.kn-mobile a,.kn-mobile-toggle{display:block;padding:15px 0;font-size:17px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;text-align:left;width:100%;}
-.kn-mobile-toggle{border-bottom:1px solid rgba(255,255,255,.08);}
-.kn-mobile-sub{padding-left:20px;display:none;}
-.kn-mobile-sub a{font-size:15px;color:rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.05);display:block;padding:12px 0;text-decoration:none;}
+.kn-mobile a{display:block;padding:15px 0;font-size:17px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.08);text-decoration:none;transition:color .2s;}
+.kn-mobile a:hover{color:#fff;}
 .kn-lang-mobile{display:flex;gap:10px;margin-top:20px;}
 .kn-lang-mobile button{flex:1;padding:12px;font-size:14px;border:1.5px solid rgba(255,255,255,.3);border-radius:50px;color:rgba(255,255,255,.7);background:transparent;cursor:pointer;font-family:inherit;}
 .kn-lang-mobile button.active{background:#c8a84b;color:#1a2a4a;border-color:#c8a84b;}
@@ -169,39 +150,11 @@ a{text-decoration:none;color:inherit}
   </a>
   <div class="kn-right">
     <div class="kn-links">
-      <div class="kn-item">
-        <button class="kn-dd-btn" id="kn-aboutBtn" onclick="knToggleDd(event,'kn-aboutDrop','kn-aboutBtn')">
-          <span class="kn-ko">교회소개</span><span class="kn-en" style="display:none">About</span>
-          <span class="kn-caret">▾</span>
-        </button>
-        <div class="kn-dropdown" id="kn-aboutDrop">
-          <a href="pastor.html"><span class="kn-ko">담임목사 인사말</span><span class="kn-en" style="display:none">Pastor's Greeting</span></a>
-          <a href="history.html"><span class="kn-ko">교회 연혁</span><span class="kn-en" style="display:none">Church History</span></a>
-          <div class="kn-sub-item">
-            <div class="kn-sub-btn" onclick="knToggleSub(event,'kn-teamDrop')">
-              <span class="kn-ko">섬기는 사람들</span><span class="kn-en" style="display:none">Our Team</span>
-              <span class="kn-sub-arrow">▸</span>
-            </div>
-            <div class="kn-sub-dropdown" id="kn-teamDrop">
-              <a href="clergy.html"><span class="kn-ko">교역자</span><span class="kn-en" style="display:none">Clergy</span></a>
-              <a href="council.html"><span class="kn-ko">당회 (운영위원회)</span><span class="kn-en" style="display:none">Session &amp; Council</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <a href="index.html#welcome" class="kn-link"><span class="kn-ko">교회소개</span><span class="kn-en" style="display:none">About</span></a>
       <a href="index.html#sermon" class="kn-link"><span class="kn-ko">말씀</span><span class="kn-en" style="display:none">Sermons</span></a>
       <a href="index.html#ministries" class="kn-link"><span class="kn-ko">사역</span><span class="kn-en" style="display:none">Ministries</span></a>
+      <a href="index.html#photos" class="kn-link"><span class="kn-ko">게시판</span><span class="kn-en" style="display:none">Board</span></a>
       <a href="index.html#offering" class="kn-link"><span class="kn-ko">헌금</span><span class="kn-en" style="display:none">Give</span></a>
-      <div class="kn-item">
-        <button class="kn-dd-btn" id="kn-boardBtn" onclick="knToggleDd(event,'kn-boardDrop','kn-boardBtn')">
-          <span class="kn-ko">게시판</span><span class="kn-en" style="display:none">Board</span>
-          <span class="kn-caret">▾</span>
-        </button>
-        <div class="kn-dropdown" id="kn-boardDrop">
-          <a href="bulletin.html"><span class="kn-ko">금주의 주보</span><span class="kn-en" style="display:none">Weekly Bulletin</span></a>
-          <a href="gallery.html"><span class="kn-ko">사진 게시판</span><span class="kn-en" style="display:none">Photo Gallery</span></a>
-        </div>
-      </div>
       <a href="index.html#new" class="kn-link"><span class="kn-ko">처음 오시는 분</span><span class="kn-en" style="display:none">New Here</span></a>
       <a href="index.html#location" class="kn-link"><span class="kn-ko">오시는 길</span><span class="kn-en" style="display:none">Visit Us</span></a>
     </div>
@@ -215,21 +168,11 @@ a{text-decoration:none;color:inherit}
 
 <div class="kn-mobile" id="kn-mobile">
   <a href="index.html"><span class="kn-ko">홈</span><span class="kn-en" style="display:none">Home</span></a>
-  <button class="kn-mobile-toggle" onclick="knToggleMSub('kn-m-about')"><span class="kn-ko">교회소개 ▾</span><span class="kn-en" style="display:none">About ▾</span></button>
-  <div class="kn-mobile-sub" id="kn-m-about">
-    <a href="pastor.html"><span class="kn-ko">담임목사 인사말</span><span class="kn-en" style="display:none">Pastor's Greeting</span></a>
-    <a href="history.html"><span class="kn-ko">교회 연혁</span><span class="kn-en" style="display:none">Church History</span></a>
-    <a href="clergy.html"><span class="kn-ko">교역자</span><span class="kn-en" style="display:none">Clergy</span></a>
-    <a href="council.html"><span class="kn-ko">당회(운영위원회)</span><span class="kn-en" style="display:none">Session &amp; Council</span></a>
-  </div>
+  <a href="index.html#welcome"><span class="kn-ko">교회소개</span><span class="kn-en" style="display:none">About</span></a>
   <a href="index.html#sermon"><span class="kn-ko">말씀</span><span class="kn-en" style="display:none">Sermons</span></a>
   <a href="index.html#ministries"><span class="kn-ko">사역</span><span class="kn-en" style="display:none">Ministries</span></a>
+  <a href="index.html#photos"><span class="kn-ko">게시판</span><span class="kn-en" style="display:none">Board</span></a>
   <a href="index.html#offering"><span class="kn-ko">헌금</span><span class="kn-en" style="display:none">Give</span></a>
-  <button class="kn-mobile-toggle" onclick="knToggleMSub('kn-m-board')"><span class="kn-ko">게시판 ▾</span><span class="kn-en" style="display:none">Board ▾</span></button>
-  <div class="kn-mobile-sub" id="kn-m-board">
-    <a href="bulletin.html"><span class="kn-ko">금주의 주보</span><span class="kn-en" style="display:none">Weekly Bulletin</span></a>
-    <a href="gallery.html"><span class="kn-ko">사진 게시판</span><span class="kn-en" style="display:none">Photo Gallery</span></a>
-  </div>
   <a href="index.html#new"><span class="kn-ko">처음 오시는 분</span><span class="kn-en" style="display:none">New Here</span></a>
   <a href="index.html#location"><span class="kn-ko">오시는 길</span><span class="kn-en" style="display:none">Visit Us</span></a>
   <div class="kn-lang-mobile">
@@ -239,37 +182,6 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <script>
-function knToggleDd(e, dropId, btnId) {
-  e.stopPropagation();
-  var drop = document.getElementById(dropId);
-  var btn  = document.getElementById(btnId);
-  var isOpen = drop.classList.contains('open');
-  knCloseAll();
-  if (!isOpen) {
-    var rect = btn.getBoundingClientRect();
-    drop.style.top  = (rect.bottom + 6) + 'px';
-    drop.style.left = rect.left + 'px';
-    drop.classList.add('open');
-    btn.classList.add('active');
-  }
-}
-function knToggleSub(e, subId) {
-  e.stopPropagation();
-  var sub  = document.getElementById(subId);
-  var btn  = e.currentTarget;
-  var rect = btn.getBoundingClientRect();
-  sub.style.top  = rect.top + 'px';
-  sub.style.left = (rect.right + 4) + 'px';
-  sub.classList.toggle('open');
-}
-function knCloseAll() {
-  document.querySelectorAll('.kn-dropdown,.kn-sub-dropdown').forEach(function(d){ d.classList.remove('open'); });
-  document.querySelectorAll('.kn-dd-btn').forEach(function(b){ b.classList.remove('active'); });
-}
-function knToggleMSub(id) {
-  var el = document.getElementById(id);
-  if (el) el.style.display = el.style.display==='block' ? 'none' : 'block';
-}
 function knSetLang(l) {
   document.querySelectorAll('.kn-ko').forEach(function(el){ el.style.display=l==='ko'?'':'none'; });
   document.querySelectorAll('.kn-en').forEach(function(el){ el.style.display=l==='en'?'':'none'; });
@@ -290,20 +202,17 @@ function knSetLang(l) {
     document.body.style.overflow=o?'hidden':'';
   });
   document.addEventListener('click',function(e){
-    if(!e.target.closest('.kn-item')&&!e.target.closest('.kn-sub-item')) knCloseAll();
     if(mob.classList.contains('open')&&!mob.contains(e.target)&&!hbg.contains(e.target)){
       mob.classList.remove('open'); hbg.classList.remove('open'); document.body.style.overflow='';
     }
   });
-  window.addEventListener('scroll',knCloseAll,{passive:true});
+  window.addEventListener('scroll',function(){/* close dropdowns */},{passive:true});
   try{
     var s=localStorage.getItem('kccic-lang')||'ko';
     if(s!=='ko') knSetLang(s);
   }catch(e){}
 })();
 </script>
-
-
 
 <div class="page-header">
   <div class="page-header-inner">
