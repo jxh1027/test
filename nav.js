@@ -105,17 +105,6 @@
   document.head.appendChild(style);
 
   // ── 섹션 스마트 이동 (index.html이면 스크롤, 서브페이지면 이동) ──
-  function gotoSection(sectionId) {
-    var el = document.getElementById(sectionId);
-    if (el) {
-      // 같은 페이지에 해당 섹션이 있으면 스크롤
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      closeMobileNav();
-      closeAll();
-    } else {
-      // 섹션이 없으면 (서브페이지) → index.html#sectionId 로 이동
-      window.location.href = 'index.html#' + sectionId;
-    }
   }
 
   // ── 현재 페이지 기준 경로 ──
@@ -190,11 +179,11 @@
           </div>
         </div>
         <!-- 말씀 -->
-        <a href="javascript:void(0)" onclick="gotoSection('sermon')" class="kn-link"><span data-ko>말씀</span><span data-en style="display:none">Sermons</span></a>
+        <a href="index.html#sermon" class="kn-link"><span data-ko>말씀</span><span data-en style="display:none">Sermons</span></a>
         <!-- 사역 -->
-        <a href="javascript:void(0)" onclick="gotoSection('ministries')" class="kn-link"><span data-ko>사역</span><span data-en style="display:none">Ministries</span></a>
+        <a href="index.html#ministries" class="kn-link"><span data-ko>사역</span><span data-en style="display:none">Ministries</span></a>
         <!-- 헌금 -->
-        <a href="javascript:void(0)" onclick="gotoSection('offering')" class="kn-link"><span data-ko>헌금</span><span data-en style="display:none">Give</span></a>
+        <a href="index.html#offering" class="kn-link"><span data-ko>헌금</span><span data-en style="display:none">Give</span></a>
         <!-- 게시판 -->
         <div class="kn-item">
           <button class="kn-dd-btn" id="kn-boardBtn">
@@ -207,9 +196,9 @@
           </div>
         </div>
         <!-- 처음 오시는 분 -->
-        <a href="javascript:void(0)" onclick="gotoSection('new')" class="kn-link"><span data-ko>처음 오시는 분</span><span data-en style="display:none">New Here</span></a>
+        <a href="index.html#new" class="kn-link"><span data-ko>처음 오시는 분</span><span data-en style="display:none">New Here</span></a>
         <!-- 오시는 길 -->
-        <a href="javascript:void(0)" onclick="gotoSection('location')" class="kn-link"><span data-ko>오시는 길</span><span data-en style="display:none">Visit Us</span></a>
+        <a href="index.html#location" class="kn-link"><span data-ko>오시는 길</span><span data-en style="display:none">Visit Us</span></a>
       </div>
       <!-- 언어 전환 -->
       <div class="kn-lang">
@@ -236,16 +225,16 @@
       <a href="clergy.html" onclick="closeMobileNav()"><span data-ko>교역자</span><span data-en style="display:none">Clergy</span></a>
       <a href="council.html" onclick="closeMobileNav()"><span data-ko>당회(운영위원회)</span><span data-en style="display:none">Session &amp; Council</span></a>
     </div>
-    <a href="javascript:void(0)" onclick="gotoSection('sermon')" onclick="closeMobileNav()"><span data-ko>말씀</span><span data-en style="display:none">Sermons</span></a>
-    <a href="javascript:void(0)" onclick="gotoSection('ministries')" onclick="closeMobileNav()"><span data-ko>사역</span><span data-en style="display:none">Ministries</span></a>
-    <a href="javascript:void(0)" onclick="gotoSection('offering')" onclick="closeMobileNav()"><span data-ko>헌금</span><span data-en style="display:none">Give</span></a>
+    <a href="index.html#sermon" onclick="closeMobileNav()"><span data-ko>말씀</span><span data-en style="display:none">Sermons</span></a>
+    <a href="index.html#ministries" onclick="closeMobileNav()"><span data-ko>사역</span><span data-en style="display:none">Ministries</span></a>
+    <a href="index.html#offering" onclick="closeMobileNav()"><span data-ko>헌금</span><span data-en style="display:none">Give</span></a>
     <button class="kn-mobile-toggle" onclick="toggleMobileSub('kn-m-board')"><span data-ko>게시판 ▾</span><span data-en style="display:none">Board ▾</span></button>
     <div class="kn-mobile-sub" id="kn-m-board">
       <a href="bulletin.html" onclick="closeMobileNav()"><span data-ko>금주의 주보</span><span data-en style="display:none">Weekly Bulletin</span></a>
       <a href="gallery.html" onclick="closeMobileNav()"><span data-ko>사진 게시판</span><span data-en style="display:none">Photo Gallery</span></a>
     </div>
-    <a href="javascript:void(0)" onclick="gotoSection('new')" onclick="closeMobileNav()"><span data-ko>처음 오시는 분</span><span data-en style="display:none">New Here</span></a>
-    <a href="javascript:void(0)" onclick="gotoSection('location')" onclick="closeMobileNav()"><span data-ko>오시는 길</span><span data-en style="display:none">Visit Us</span></a>
+    <a href="index.html#new" onclick="closeMobileNav()"><span data-ko>처음 오시는 분</span><span data-en style="display:none">New Here</span></a>
+    <a href="index.html#location" onclick="closeMobileNav()"><span data-ko>오시는 길</span><span data-en style="display:none">Visit Us</span></a>
     <div class="kn-lang-mobile">
       <button class="kn-btn-ko active" onclick="setLang('ko')">한국어</button>
       <button class="kn-btn-en" onclick="setLang('en')">English</button>
