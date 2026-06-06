@@ -186,19 +186,25 @@ img{display:block;max-width:100%}
 .ministry-card{
   position:relative;padding:28px 20px 24px;border-radius:var(--r-lg);
   transition:all .25s;cursor:pointer;text-align:center;
-  border:1.5px solid rgba(255,255,255,.1);
+  border:none;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);
   overflow:hidden;min-height:160px;
-  background:var(--navy);
+  background:#111;
   display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
 }
-.ministry-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(26,58,106,.28);border-color:var(--gold)}
+.ministry-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.28);}
 .ministry-card:hover h3{color:#fff}
 .ministry-card:hover p{color:rgba(255,255,255,.75)}
 .ministry-bg{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  -webkit-mask-image:linear-gradient(to bottom right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 100%);
-  mask-image:linear-gradient(to bottom right,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 100%);
   pointer-events:none;transition:transform .35s;
+}
+.ministry-card::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.1) 50%, rgba(0,0,0,0) 100%);
+  z-index:1;
+  pointer-events:none;
 }
 .ministry-card:hover .ministry-bg{transform:scale(1.05)}
 .ministry-card-content{position:relative;z-index:2;}
@@ -1416,12 +1422,20 @@ function setLang(lang) {
         ? '<img src="' + p.thumb + '" alt="' + p.title_ko + '" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;">'
         : '<div style="width:100%;height:100%;background:linear-gradient(135deg,#c8d8ee,#8aaed0);display:flex;align-items:center;justify-content:center;font-size:32px;">🖼️</div>';
 
+      var dateStr = p.date ? p.date.replace(/-/g, '.') : '';
       var postUrl = 'gallery.html?post=' + encodeURIComponent(p.id);
-      return '<a href="' + postUrl + '" class="photo-cell" style="padding:0;background:#111;overflow:hidden;display:block;text-decoration:none;"'
+      return '<a href="' + postUrl + '" class="photo-cell" style="padding:0;background:#111;overflow:hidden;display:block;text-decoration:none;position:relative;"'
         + ' onmouseenter="this.querySelector(\'img\')&&(this.querySelector(\'img\').style.transform=\'scale(1.07)\')"'
-        + ' onmouseleave="this.querySelector(\'img\')&&(this.querySelector(\'img\').style.transform=\'scale(1)\')"'
-        + ' title="' + p.title_ko + '">'
+        + ' onmouseleave="this.querySelector(\'img\')&&(this.querySelector(\'img\').style.transform=\'scale(1)\')">'
         + thumb
+        + '<div style="position:absolute;bottom:0;left:0;right:0;'
+        + 'background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,0) 100%);'
+        + 'padding:20px 12px 10px;text-align:right;">'
+        + '<div style="font-size:13px;font-weight:700;color:#fff;'
+        + 'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;'
+        + 'text-shadow:0 1px 3px rgba(0,0,0,.5);">' + p.title_ko + '</div>'
+        + '<div style="font-size:11px;color:rgba(255,255,255,.7);margin-top:2px;">' + dateStr + '</div>'
+        + '</div>'
         + '</a>';
     }).join('');
   }
