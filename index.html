@@ -484,6 +484,39 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
   .about-tile-body{padding:12px;}
 }
 
+
+/* ── 주보 카드 ── */
+.bulletin-card{
+  background:#fff;border-radius:var(--r-lg);
+  box-shadow:0 2px 16px rgba(0,0,0,.07);
+  overflow:hidden;cursor:pointer;
+  display:flex;align-items:stretch;
+  transition:box-shadow .2s;
+}
+.bulletin-card-left{
+  background:var(--navy);padding:28px 32px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:8px;min-width:130px;flex-shrink:0;
+}
+.bulletin-card-right{
+  padding:24px 28px;flex:1;min-width:0;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.bulletin-card-arrow{
+  display:flex;align-items:center;
+  padding:0 20px;color:#ccc;font-size:24px;flex-shrink:0;
+}
+@media(max-width:600px){
+  .bulletin-card{flex-direction:column;}
+  .bulletin-card-left{
+    flex-direction:row;padding:16px 20px;
+    min-width:unset;gap:12px;
+  }
+  .bulletin-card-right{padding:16px 20px;}
+  .bulletin-card-arrow{display:none;}
+}
+
 </style>
 </head>
 <body class="lang-ko">
@@ -1118,25 +1151,19 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
       </div>
 
       <!-- 주보 카드 -->
-      <div id="bulletinPreview" style="
-        background:#fff;border-radius:var(--r-lg);
-        box-shadow:0 2px 16px rgba(0,0,0,.07);
-        overflow:hidden;cursor:pointer;
-        display:flex;align-items:stretch;
-        transition:box-shadow .2s;"
+      <div id="bulletinPreview" class="bulletin-card"
         onclick="window.location.href='bulletin.html'"
         onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,.12)'"
         onmouseout="this.style.boxShadow='0 2px 16px rgba(0,0,0,.07)'">
-        <!-- 왼쪽: 날짜/아이콘 -->
-        <div style="background:var(--navy);padding:28px 32px;display:flex;flex-direction:column;
-          align-items:center;justify-content:center;gap:8px;min-width:140px;">
+        <!-- 왼쪽: 아이콘 -->
+        <div class="bulletin-card-left">
           <div style="font-size:36px;">📄</div>
           <div id="bulletinDateDisplay" style="font-size:13px;font-weight:700;color:var(--gold);text-align:center;line-height:1.4;">
             <span data-ko>최신 주보</span><span data-en>Latest</span>
           </div>
         </div>
         <!-- 오른쪽: 내용 -->
-        <div style="padding:28px 32px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div class="bulletin-card-right">
           <p style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
             color:var(--gold);margin-bottom:8px;">
             <span data-ko>주일 예배 주보</span><span data-en>Sunday Service Bulletin</span>
@@ -1150,7 +1177,7 @@ footer{background:#0d1c36;color:rgba(255,255,255,.52)}
           </p>
         </div>
         <!-- 화살표 -->
-        <div style="display:flex;align-items:center;padding:0 24px;color:#ccc;font-size:24px;">›</div>
+        <div class="bulletin-card-arrow">›</div>
       </div>
     </div>
 
